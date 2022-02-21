@@ -203,6 +203,7 @@ h1, h2, h3, h4, h5, h6 {
   background: url("../img/hero-bg.jpg") top right;
   background-size: cover;
   background-size: 80%;
+  background-repeat: no-repeat;
 }
 #hero:before {
   content: "";
