@@ -26,7 +26,7 @@
      
       // Envoyer l'email
       mail($destinataire, $objet, $contenu, $headers); // Fonction principale qui envoi l'email
-      //header("location:index.html"); // Afficher un message pour indiquer que le message a été envoyé
+      header("location:index.html"); // Afficher un message pour indiquer que le message a été envoyé
       // (2) Fin du code pour traiter l'envoi de l'email
     }
     ?>
