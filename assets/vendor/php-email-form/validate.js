@@ -37,7 +37,7 @@
                 php_email_form_submit(thisForm, action, formData);
               })
             } catch(error) {
-              displayError(thisForm, error)
+              //displayError(thisForm, error)
             }
           });
         } else {
