@@ -487,6 +487,8 @@
               // Show the loading indicator
               const loading = form.querySelector('.loading');
               loading.style.display = 'block';
+              sentMessage.style.display = 'none'
+              errorMessage.style.display = 'none'
           
               // Disable the submit button while processing
               const submitButton = form.querySelector('button[type="submit"]');
