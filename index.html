@@ -448,7 +448,7 @@
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
             <form action="https://formsubmit.co/99e0fe7d01fa91a1afcf412dfae9cbce" method="post" enctype="multipart/form-data" role="form" class="php-email-form">
               <input type="hidden" name="_captcha" value="false">
-              <!--input type="hidden" name="_next" value="https://printingindustries.github.io/thanks.html">-->
+              <!-- <input type="hidden" name="_next" value="https://printingindustries.github.io/thanks.html"> -->
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Votre nom</label>
@@ -469,12 +469,64 @@
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
-                <div class="sent-message">Votre message a été envoyé. Merci !</div>
-                <div class="error-message">L'envoi a échoué. Réessayer plus tard.</div>
+                <div class="sent-message" style="display: none;">Votre message a été envoyé. Merci !</div>
+                <div class="error-message" style="display: none;">L'envoi a échoué. Réessayer plus tard.</div>
               </div>
               <div class="text-center"><button type="submit">Envoyer</button></div>
             </form>
           </div>
+
+          <script>
+            const form = document.querySelector('.php-email-form');
+            const sentMessage = document.querySelector('.sent-message');
+            const errorMessage = document.querySelector('.error-message');
+          
+            form.addEventListener('submit', function (event) {
+              event.preventDefault();
+          
+              // Show the loading indicator
+              const loading = form.querySelector('.loading');
+              loading.style.display = 'block';
+          
+              // Disable the submit button while processing
+              const submitButton = form.querySelector('button[type="submit"]');
+              submitButton.disabled = true;
+          
+              // Perform the form submission using Ajax or fetch
+              const formData = new FormData(form);
+          
+              fetch(form.action, {
+                method: 'POST',
+                body: formData
+              })
+                .then(function (response) {
+                  // Hide the loading indicator
+                  loading.style.display = 'none';
+          
+                  if (response.ok) {
+                    // Show the success message
+                    sentMessage.style.display = 'block';
+                    form.reset();
+                  } else {
+                    // Show the error message
+                    errorMessage.style.display = 'block';
+                  }
+          
+                  // Enable the submit button
+                  submitButton.disabled = false;
+                })
+                .catch(function () {
+                  // Hide the loading indicator
+                  loading.style.display = 'none';
+                  
+                  // Show the error message
+                  errorMessage.style.display = 'block';
+          
+                  // Enable the submit button
+                  submitButton.disabled = false;
+                });
+            });
+          </script>
         
 
         </div>
