@@ -956,3 +956,44 @@ section {
     padding-right: 20px 15px;
   }
 }
+
+.popup {
+  display: block;
+  z-index: 999;
+  position: fixed;
+  top: 15%;
+  left: 61%;
+  transform: translate(-50%, -50%);
+  background-color: #18d26e;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: bounce 0.5s ease-in-out infinite;
+}
+
+.popup-content {
+  width: 985px;
+}
+
+.close {
+  position: absolute;
+  padding: 20px;
+  top: 10px;
+  right: 10px;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.content {
+  font-size: 20px;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-10 px)
+  }
+}
